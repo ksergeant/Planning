@@ -11,6 +11,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -22,6 +23,8 @@ int main(int argc, const char * argv[]) {
     
     int compteurJourVac = 1;
    
+    char format[128];
+    
     time_t timestamp;
     time_t start = 1510272000; // le 10/11/2017
     struct tm * t;
@@ -48,7 +51,14 @@ int main(int argc, const char * argv[]) {
         }
         
         switch (compteurJourVac) {
-            case 1: cout << "Aprem" <<endl; break; //debut vac aprem
+            case 1: cout << "Aprem" <<endl;
+                
+                
+                strftime(format, 128, "%x\n", t);
+                cout << format <<endl;
+                
+                break; //debut vac aprem
+                
             case 2: cout << "Aprem" <<endl; break;
             case 3: cout << "Aprem" <<endl; break;
             case 4: cout << "Aprem" <<endl<<endl; break;

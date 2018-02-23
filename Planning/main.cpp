@@ -15,28 +15,36 @@
 
 using namespace std;
 
+struct data { // structure data
+
+    string vacation;
+    char date;
+
+};
+
+
+
 int main(int argc, const char * argv[]) {
     
-    
+    // initialisation des variables
     const char * NomJourSemaine[] = {"Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"};
     const char * NomMois[] = {"Jan", "Fev", "Mar"     , "Avr"  , "Mai"     , "Jui"    , "Juy", "Aou"   , "Sep", "Oct", "Nov", "Dec"};
-    
     int compteurJourVac = 1;
-   
     char format[128];
-    
     time_t timestamp;
     time_t start = 1510272000; // le 10/11/2017
     struct tm * t;
     long int decal = 86400;
-    
     timestamp = start;
     t = localtime(&timestamp);
     
+    // Phrase de départ pour le commencemebt des calculs dans le temps
+    
     printf("Nous sommes %s,  ", NomJourSemaine[t->tm_wday]);
-    printf("le %02u %s %04u,  ", t->tm_mday, NomMois[t->tm_mon], 1900 + t->tm_year);
+    printf("le %02u %s %04u,  ", t->tm_mday, NomMois[t->tm_mon], 1900 + t->tm_year); // départ le 10 novembre 2017
     cout << "Start" <<endl<<endl;
     
+    // Boucle qui calcule les jours sur les 10 prochaines années (84 cas possibles)
     
     for(int i = 0; i<3649; i++){
         
@@ -50,16 +58,22 @@ int main(int argc, const char * argv[]) {
         
         }
         
+        // switch des 84 possibilitées
+        
         switch (compteurJourVac) {
             case 1: cout << "Aprem" <<endl;
                 
                 
-                strftime(format, 128, "%x\n", t);
+                strftime(format, 128, "%Y/%m/%d\n", t); // format de date utilisable pour la base de données 
                 cout << format <<endl;
                 
                 break; //debut vac aprem
                 
-            case 2: cout << "Aprem" <<endl; break;
+            case 2: cout << "Aprem" <<endl;
+                strftime(format, 128, "%Y/%m/%d\n", t);
+                cout << format <<endl;
+                break;
+                
             case 3: cout << "Aprem" <<endl; break;
             case 4: cout << "Aprem" <<endl<<endl; break;
                 

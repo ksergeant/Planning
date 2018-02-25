@@ -20,7 +20,7 @@ using namespace std;
 struct data { // structure data
 
     string vacation;
-    char date;
+    string date;
 
 };
 
@@ -29,6 +29,9 @@ struct data { // structure data
 int main(int argc, const char * argv[]) {
     
     // initialisation des variables
+    int nombreElement = 0;
+    struct data dataX;
+    vector<data> Tabdata;
     const char * NomJourSemaine[] = {"Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"};
     const char * NomMois[] = {"Jan", "Fev", "Mar"     , "Avr"  , "Mai"     , "Jui"    , "Juy", "Aou"   , "Sep", "Oct", "Nov", "Dec"};
     int compteurJourVac = 1;
@@ -55,7 +58,7 @@ int main(int argc, const char * argv[]) {
         timestamp = start+decal;
         t = localtime(&timestamp);
         printf("Nous sommes %s,  ", NomJourSemaine[t->tm_wday]);
-        printf("le %02u %s %04u,  ", t->tm_mday, NomMois[t->tm_mon], 1900 + t->tm_year);
+        //printf("le %02u %s %04u,  ", t->tm_mday, NomMois[t->tm_mon], 1900 + t->tm_year);
         
         if (compteurJourVac>84) {
             compteurJourVac = 1;
@@ -67,23 +70,36 @@ int main(int argc, const char * argv[]) {
         switch (compteurJourVac) {
             
             case 1: cout << "Aprem" <<endl;
-                strftime(format, 128, "%Y/%m/%d\n", t); // format de date utilisable pour la base de données 
-                cout << format <<endl;
+                strftime(format, 128, "%Y/%m/%d", t); // format de date utilisable pour la base de données
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
+                
                 break; //debut vac aprem
                 
             case 2: cout << "Aprem" <<endl;
-                strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                strftime(format, 128, "%Y/%m/%d", t);
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 3: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 4: cout << "Aprem" <<endl<<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 5: cout << "Repos" <<endl;break;
@@ -94,27 +110,42 @@ int main(int argc, const char * argv[]) {
                 
             case 10: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 11: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 12: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 13: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 14: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 15: cout << "Repos" <<endl;break;
@@ -124,27 +155,42 @@ int main(int argc, const char * argv[]) {
                 
             case 19: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 20: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 21: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 22: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 23: cout << "Aprem" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Après-midi";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break;
                 
             case 24: cout << "Repos" <<endl; break;
@@ -155,7 +201,10 @@ int main(int argc, const char * argv[]) {
                 
             case 29: cout << "Matin" <<endl;
                 strftime(format, 128, "%Y/%m/%d\n", t);
-                cout << format <<endl;
+                dataX.vacation ="Matin";
+                dataX.date = format;
+                cout << dataX.date << " : " << dataX.vacation <<endl;
+                Tabdata.push_back(dataX);
                 break; //debut vac matin
                 
             case 30: cout << "Matin" <<endl;
@@ -337,9 +386,15 @@ int main(int argc, const char * argv[]) {
     
     }
 
+    //Affichage du vector
+    for(int i = 0; Tabdata.size()!= i  ;++i)
+    {
+        cout << Tabdata.at(i).date <<" : "<< Tabdata.at(i).vacation <<endl;
+        
+        nombreElement = i ;
+    }
     
-    
-    
+    cout <<"\nNombre de jours travaillé sur 10 ans : " <<nombreElement<<endl<<endl;
     
     return 0;
 }

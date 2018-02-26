@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A0FBA851F7D65A3002BFC98 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A0FBA841F7D65A3002BFC98 /* main.cpp */; };
+		0A67ED7B20445C2C007A674D /* libcurl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A67ED7A20445C2C007A674D /* libcurl.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		0A0FBA811F7D65A3002BFC98 /* Planning */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Planning; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0FBA841F7D65A3002BFC98 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0A67ED7A20445C2C007A674D /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = usr/lib/libcurl.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A67ED7B20445C2C007A674D /* libcurl.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +46,7 @@
 			children = (
 				0A0FBA831F7D65A3002BFC98 /* Planning */,
 				0A0FBA821F7D65A3002BFC98 /* Products */,
+				0A67ED7920445C2B007A674D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +64,14 @@
 				0A0FBA841F7D65A3002BFC98 /* main.cpp */,
 			);
 			path = Planning;
+			sourceTree = "<group>";
+		};
+		0A67ED7920445C2B007A674D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A67ED7A20445C2C007A674D /* libcurl.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +260,7 @@
 				0A0FBA8A1F7D65A3002BFC98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

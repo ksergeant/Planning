@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <curl/curl.h>
 
 using namespace std;
 
@@ -33,7 +34,7 @@ int main(int argc, const char * argv[]) {
     struct data dataX;
     vector<data> Tabdata;
     const char * NomJourSemaine[] = {"Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"};
-    const char * NomMois[] = {"Jan", "Fev", "Mar"     , "Avr"  , "Mai"     , "Jui"    , "Juy", "Aou"   , "Sep", "Oct", "Nov", "Dec"};
+    const char * NomMois[] = {"Jan", "Fev", "Mar", "Avr", "Mai", "Jui", "Juy", "Aou", "Sep", "Oct", "Nov", "Dec"};
     int compteurJourVac = 1;
     char format[128];
     time_t timestamp;
@@ -467,6 +468,10 @@ int main(int argc, const char * argv[]) {
 
     //Affichage du vector
     cout << "### Affichage du conteneur de data ### \n" <<endl;
+    string dataDate, dataVaction, dataAll;
+    const char *dataSend;
+    CURL *curl;
+    CURLcode res;
     
     int compteur =0;
     
@@ -478,12 +483,43 @@ int main(int argc, const char * argv[]) {
             compteur = 0;
         }
        
-        cout << Tabdata.at(i).date <<" : "<< Tabdata.at(i).vacation <<" : "<< Tabdata.at(i).jour <<endl;
+       // cout << Tabdata.at(i).date <<" : "<< Tabdata.at(i).vacation <<" : "<< Tabdata.at(i).jour <<endl;
+        
+        cout << "\n ### Envoie Via Curl ### \n" << endl;
+        dataDate = Tabdata.at(i).date;
+        dataVaction = Tabdata.at(i).vacation;
+        dataAll = "DAY="+dataDate+"&VACATION="+dataVaction;
+        dataSend = dataAll.c_str();
+        curl = curl_easy_init();
+        cout << "Data : "<<dataAll << endl;
+        
+        if(curl)
+        {
+            curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:8888/Vacation/EnregistrerVacation.php");
+            /* Now specify the POST data */
+            curl_easy_setopt(curl, CURLOPT_POSTFIELDS, dataSend);
+            
+            /* Perform the request, res will get the return code */
+            res = curl_easy_perform(curl);
+            
+            /* always cleanup */
+            curl_easy_cleanup(curl);
+            
+        }
+        else
+        {
+            cerr << "Fail to create curl handle for post method\n";
+            exit(1);
+        };
+        
+        
+        
         compteur = compteur +1;
         nombreElement = i ;
     }
     
     cout <<"\nNombre de jours travaillé sur 10 ans : " << nombreElement << endl;
+    
     
     cout <<"        \n@@@@@ Planning 1.0 By MOKS @@@@@" << endl << endl;
     
